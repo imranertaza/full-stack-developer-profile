@@ -1,0 +1,22 @@
+node_modules/
+# Build output
+dist/
+# Environment files
+.env
+.env.local
+.env.*.local
+# OS generated files
+.DS_Store
+# Logs
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+# IDE / editor folders
+.idea/
+.vscode/
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo

@@ -1,0 +1,14 @@
+{
+  "name": "syed-imran-ertaza-portfolio",
+  "version": "1.0.0",
+  "description": "Syed Imran Ertaza - Full-Stack Web Developer Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server . -p 8080",
+    "start": "npx -y http-server . -p 8080",
+    "build": "mkdir -p dist && cp -r css js assets index.html send-mail.php dist/",
+    "lint": "npx -y eslint js/main.js --no-config-lookup --env es2021,browser || true"
+  },
+  "author": "Syed Imran Ertaza",
+  "license": "MIT"
+}

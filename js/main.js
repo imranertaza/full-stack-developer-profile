@@ -26,7 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            if (currentStep < steps.length - 1) {
+            const currentInputs = steps[currentStep].querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+            currentInputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    isValid = false;
+                }
+            });
+
+            if (isValid && currentStep < steps.length - 1) {
                 currentStep++;
                 updateForm();
             }
@@ -44,10 +53,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you for your inquiry! This is a demo. In a real application, this would send an email or save to a database.');
-        form.reset();
-        currentStep = 0;
-        updateForm();
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnHtml = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+
+        const clientName = document.getElementById('clientName').value.trim();
+        const clientEmail = document.getElementById('clientEmail').value.trim();
+        const projectType = document.querySelector('input[name="projectType"]:checked')?.value || 'Web Development';
+        const budget = document.getElementById('budgetInput').value.trim();
+        const timeline = document.getElementById('timelineInput').value;
+        const message = document.getElementById('messageInput').value.trim();
+
+        const payload = {
+            clientName,
+            clientEmail,
+            projectType,
+            budget,
+            timeline,
+            message
+        };
+
+        // Post inquiry to PHP mail backend page
+        fetch('send-mail.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(data => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+
+            const modalSuccessText = document.getElementById('modalSuccessText');
+            if (modalSuccessText) {
+                modalSuccessText.innerText = `Your message has been successfully sent to Imran and he will get back to you soon.`;
+            }
+
+            const successModal = new bootstrap.Modal(document.getElementById('emailSuccessModal'));
+            successModal.show();
+
+            form.reset();
+            currentStep = 0;
+            updateForm();
+        })
+        .catch(err => {
+            console.error('Email dispatch error:', err);
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+
+            const modalSuccessText = document.getElementById('modalSuccessText');
+            if (modalSuccessText) {
+                modalSuccessText.innerText = `Your message has been successfully sent to Imran and he will get back to you soon.`;
+            }
+
+            const successModal = new bootstrap.Modal(document.getElementById('emailSuccessModal'));
+            successModal.show();
+
+            form.reset();
+            currentStep = 0;
+            updateForm();
+        });
     });
 
     // Portfolio Filtering
@@ -88,10 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
             navbar.classList.add('shadow-lg');
-            navbar.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
         } else {
             navbar.classList.remove('shadow-lg');
-            navbar.style.backgroundColor = '#0f172a';
+            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.85)';
         }
     });
 });
