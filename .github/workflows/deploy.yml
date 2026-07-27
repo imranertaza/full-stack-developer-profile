@@ -29,6 +29,6 @@ jobs:
           username: imranertaza
           password: vy%$]t{tYe@b
           port: 21
-          local-dir: ./dist
-          remote-dir: /public_html
+          local-dir: ./dist/
+          server-dir: /public_html
           protocol: ftp
