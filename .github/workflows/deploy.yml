@@ -21,7 +21,10 @@ jobs:
 
       - name: Build site
         run: npm run build
-
+      - name: Sync project files for deployment
+        run: |
+          rsync -av --exclude='node_modules' --exclude='.git' --exclude='dist' ./ ./dist/
+      # Deploy step will not delete remote files (delete: false)
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
@@ -32,3 +35,4 @@ jobs:
           local-dir: ./dist/
           server-dir: /public_html/
           protocol: ftp
+          delete: false
