@@ -22,13 +22,13 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      - name: Deploy via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ftp.imranertaza.com
+          host: ftp.imranertaza.com
           username: imranertaza
           password: vy%$]t{tYe@b
           port: 22
-          local-dir: ./dist/
-          server-dir: /public_html/
-          protocol: ftp
+          source: "./dist/*"
+          target: "/public_html/"
+
