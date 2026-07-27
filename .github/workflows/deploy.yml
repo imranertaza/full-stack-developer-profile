@@ -25,8 +25,10 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: ${{ secrets.CPANEL_FTP_HOST }}
-          username: ${{ secrets.CPANEL_FTP_USERNAME }}
-          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          server: ftp.imranertaza.com
+          username: imranertaza
+          password: vy%$]t{tYe@b
+          port: 21
           local-dir: ./dist
-          remote-dir: ${{ secrets.CPANEL_FTP_REMOTE_DIR }}
+          remote-dir: /public_html
+          protocol: ftp
