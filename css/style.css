@@ -27,14 +27,34 @@ body {
 }
 
 /* Base Utilities */
-.text-red, .text-cyan { color: var(--red) !important; }
-.text-white-custom { color: #ffffff !important; }
-.text-secondary { color: var(--text-slate) !important; }
+.text-red,
+.text-cyan {
+    color: var(--red) !important;
+}
 
-.bg-dark { background-color: var(--bg-dark) !important; }
-.bg-dark-alt { background-color: var(--bg-dark-alt) !important; }
-.bg-red, .bg-cyan { background-color: var(--red) !important; }
-.bg-red-soft, .bg-cyan-soft {
+.text-white-custom {
+    color: #ffffff !important;
+}
+
+.text-secondary {
+    color: var(--text-slate) !important;
+}
+
+.bg-dark {
+    background-color: var(--bg-dark) !important;
+}
+
+.bg-dark-alt {
+    background-color: var(--bg-dark-alt) !important;
+}
+
+.bg-red,
+.bg-cyan {
+    background-color: var(--red) !important;
+}
+
+.bg-red-soft,
+.bg-cyan-soft {
     background-color: var(--red-soft) !important;
     border: 1px solid rgba(255, 42, 75, 0.3);
 }
@@ -49,9 +69,17 @@ body {
 }
 
 @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Floating red color gradient moving across text position */
@@ -69,12 +97,18 @@ body {
 }
 
 @keyframes floatRedColor {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
 }
 
 /* Buttons */
-.btn-red, .btn-cyan {
+.btn-red,
+.btn-cyan {
     background: linear-gradient(135deg, #ff2a4b 0%, #d61c38 100%);
     color: #ffffff !important;
     border: none;
@@ -82,13 +116,15 @@ body {
     transition: all 0.3s ease;
 }
 
-.btn-red:hover, .btn-cyan:hover {
+.btn-red:hover,
+.btn-cyan:hover {
     box-shadow: 0 0 25px var(--red-glow);
     transform: translateY(-2px) scale(1.03);
     color: #ffffff !important;
 }
 
-.btn-outline-red, .btn-outline-cyan {
+.btn-outline-red,
+.btn-outline-cyan {
     border: 1.5px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
     font-weight: 500;
@@ -96,8 +132,10 @@ body {
     transition: all 0.3s ease;
 }
 
-.btn-outline-red:hover, .btn-outline-cyan:hover,
-.btn-outline-red.active, .btn-outline-cyan.active {
+.btn-outline-red:hover,
+.btn-outline-cyan:hover,
+.btn-outline-red.active,
+.btn-outline-cyan.active {
     border-color: var(--red);
     background-color: var(--red);
     color: #ffffff !important;
@@ -109,13 +147,15 @@ body {
     color: #ffffff;
     transition: all 0.3s ease;
 }
+
 .btn-outline-light:hover {
     background-color: #ffffff;
     color: #000000 !important;
     border-color: #ffffff;
 }
 
-.btn-outline-red-sm, .btn-outline-cyan-sm {
+.btn-outline-red-sm,
+.btn-outline-cyan-sm {
     border: 1px solid var(--red);
     color: var(--red);
     font-size: 0.85rem;
@@ -123,7 +163,8 @@ body {
     transition: all 0.3s ease;
 }
 
-.btn-outline-red-sm:hover, .btn-outline-cyan-sm:hover {
+.btn-outline-red-sm:hover,
+.btn-outline-cyan-sm:hover {
     background-color: var(--red);
     color: #ffffff;
     box-shadow: 0 0 15px var(--red-glow);
@@ -206,7 +247,8 @@ section {
 }
 
 /* Professional Top & Bottom Hero Separators */
-.hero-top-divider, .hero-bottom-divider {
+.hero-top-divider,
+.hero-bottom-divider {
     position: absolute;
     left: 0;
     width: 100%;
@@ -281,9 +323,20 @@ section {
     z-index: 3;
 }
 
-.card-laravel { top: 10%; left: -5%; }
-.card-wp { bottom: 15%; left: 0%; }
-.card-vue { top: 40%; right: -5%; }
+.card-laravel {
+    top: 10%;
+    left: -5%;
+}
+
+.card-wp {
+    bottom: 15%;
+    left: 0%;
+}
+
+.card-vue {
+    top: 40%;
+    right: -5%;
+}
 
 /* Background Blobs */
 .blob {
@@ -297,8 +350,15 @@ section {
     border-radius: 50%;
 }
 
-.blob-1 { top: -10%; right: -10%; }
-.blob-2 { bottom: -10%; left: -10%; }
+.blob-1 {
+    top: -10%;
+    right: -10%;
+}
+
+.blob-2 {
+    bottom: -10%;
+    left: -10%;
+}
 
 /* Portfolio Overlay */
 .portfolio-overlay {
@@ -350,6 +410,7 @@ section {
     transition: border-color 0.3s ease !important;
     transform: none !important;
     box-shadow: none !important;
+    min-height: 400px;
 }
 
 .testimonial-card:hover {
@@ -393,13 +454,15 @@ section {
 }
 
 /* Form Inputs */
-.form-control, .form-select {
+.form-control,
+.form-select {
     background-color: #000000 !important;
     color: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
 }
 
-.form-control:focus, .form-select:focus {
+.form-control:focus,
+.form-select:focus {
     border-color: var(--red) !important;
     box-shadow: 0 0 12px var(--red-glow) !important;
 }
@@ -410,15 +473,25 @@ section {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
 ::-webkit-scrollbar-thumb {
     background: #27272a;
     border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--red); }
 
-.hover-red:hover, .hover-cyan:hover {
+::-webkit-scrollbar-thumb:hover {
+    background: var(--red);
+}
+
+.hover-red:hover,
+.hover-cyan:hover {
     color: var(--red) !important;
 }
 
@@ -427,9 +500,20 @@ section {
 }
 
 @keyframes pulse {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(1.2); }
-    100% { opacity: 1; transform: scale(1); }
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .floating-animation {
@@ -441,7 +525,15 @@ section {
 }
 
 @keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-16px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-16px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
