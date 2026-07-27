@@ -134,8 +134,17 @@ $clientHeaders .= "From: Syed Imran Ertaza <imranertaza12@gmail.com>" . "\r\n";
 $clientHeaders .= "Reply-To: imranertaza12@gmail.com" . "\r\n";
 
 // Send emails using PHP mail() function
-$mailAdminSent  = @mail($adminEmail, $adminSubject, $adminHtmlBody, $adminHeaders);
-$mailClientSent = @mail($clientEmail, $clientSubject, $clientHtmlBody, $clientHeaders);
+$mailAdminSent = mail($adminEmail, $adminSubject, $adminHtmlBody, $adminHeaders, '-f imranertaza12@gmail.com');
+$mailClientSent = mail($clientEmail, $clientSubject, $clientHtmlBody, $clientHeaders, '-f imranertaza12@gmail.com');
+if (!$mailAdminSent || !$mailClientSent) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Failed to send email.',
+        'data' => []
+    ]);
+    exit;
+}
 
 // Respond with JSON success message
 echo json_encode([
