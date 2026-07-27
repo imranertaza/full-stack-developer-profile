@@ -25,9 +25,9 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: ftp.imranertaza.com
-          username: githubUsr@imranertaza.com
-          password: s(bDwkC2+8=eUY4U
+          server: ${{ secrets.CPANEL_FTP_HOST }}
+          username: ${{ secrets.CPANEL_FTP_HOST }}
+          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
           port: 21
           local-dir: ./dist/
           server-dir: /public_html/
