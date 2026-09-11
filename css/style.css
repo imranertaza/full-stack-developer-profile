@@ -537,3 +537,183 @@ section {
         transform: translateY(0px);
     }
 }
+
+/* ============================================================
+   PROJECT DETAILS PAGE — CASE STUDY FORMAT
+   ============================================================ */
+
+/* Hero */
+.project-hero {
+    padding: 140px 0 90px;
+    background: radial-gradient(circle at 50% 30%, rgba(255, 42, 75, 0.09) 0%, rgba(10, 10, 10, 0.95) 75%);
+    border-bottom: 1px solid rgba(255, 42, 75, 0.25);
+}
+
+/* Meta Strip: Client / Industry / Technology */
+.pd-meta-strip {
+    margin-top: 2.5rem;
+    border-radius: 1.25rem;
+}
+
+.pd-meta-cell {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.pd-meta-cell-bordered {
+    border-left: 1px solid var(--border-color);
+}
+
+.pd-meta-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.pd-meta-value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+@media (max-width: 767.98px) {
+    .pd-meta-cell-bordered {
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+    }
+}
+
+/* Cover image overlap */
+.pd-cover-wrap {
+    margin-top: -50px;
+    position: relative;
+    z-index: 5;
+}
+
+.pd-cover-wrap img {
+    max-height: 520px;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* What I Did — checklist */
+.pd-work-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.pd-work-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0.9rem;
+    padding: 1rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.pd-work-item:hover {
+    border-color: rgba(255, 42, 75, 0.5);
+    transform: translateX(6px);
+    box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.8), 0 0 18px rgba(255, 42, 75, 0.1);
+}
+
+.pd-work-item i {
+    font-size: 1.15rem;
+    margin-top: 0.15rem;
+}
+
+/* Result metrics */
+.pd-result-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pd-result-row:last-child {
+    border-bottom: none;
+}
+
+.pd-result-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--red);
+    white-space: nowrap;
+}
+
+.pd-result-label {
+    font-size: 0.9rem;
+    color: var(--text-slate);
+    text-align: right;
+}
+
+/* Visit Live Website CTA */
+.pd-live-cta {
+    background: linear-gradient(135deg, #ff2a4b 0%, #d61c38 100%);
+    color: #ffffff !important;
+    border-radius: 1.25rem;
+    padding: 1.5rem 2rem;
+    font-size: 1.15rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px -5px var(--red-glow);
+}
+
+.pd-live-cta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px -5px var(--red-glow);
+    color: #ffffff !important;
+}
+
+.pd-live-cta i {
+    transition: transform 0.3s ease;
+}
+
+.pd-live-cta:hover i {
+    transform: translateX(6px);
+}
+
+/* Gallery */
+.pd-gallery-item {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    height: 100%;
+}
+
+.pd-gallery-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.pd-gallery-item:hover {
+    border-color: rgba(255, 42, 75, 0.5);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 42, 75, 0.15);
+}
+
+.pd-gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Next project card hover fix (links wrap cards) */
+a .card-custom {
+    text-decoration: none;
+}
+
+a:hover .card-custom {
+    border-color: rgba(255, 42, 75, 0.5);
+}
